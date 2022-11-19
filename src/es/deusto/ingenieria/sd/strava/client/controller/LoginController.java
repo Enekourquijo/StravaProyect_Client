@@ -1,8 +1,8 @@
-package es.deusto.ingenieria.sd.auctions.client.controller;
+package es.deusto.ingenieria.sd.strava.client.controller;
 
 import java.rmi.RemoteException;
 
-import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 //This class implements Controller pattern.
 public class LoginController {	
@@ -38,7 +38,7 @@ public class LoginController {
 
 	public void signup(String nombre, String contr, String mail, String fNac, 
             double peso, int altura, double fCardiacaMaxima, double fCardiacaReposo, String log) {
-		this.serviceLocator.getService().signup(nombre, contr, mail, fNac,  peso, altura, fCardiacaMaxima, fCardiacaReposo, log);
+		this.serviceLocator.getService().signup(nombre, contr, mail, fNac, peso, altura, fCardiacaMaxima, fCardiacaReposo, log);
 	
 	}
 	

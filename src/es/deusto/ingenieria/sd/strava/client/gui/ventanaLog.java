@@ -1,4 +1,4 @@
-package ClienteVentana;
+package es.deusto.ingenieria.sd.strava.client.gui;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -14,12 +14,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
+
+import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
+
 import javax.swing.JButton;
 
 public class ventanaLog extends JFrame{
 	private JPanel contentPane;
 	private JTextField txtEmail;
 	private JPasswordField txtContrasenia;
+	private ServiceLocator service;
 	
 	public ventanaLog() {
 		
@@ -64,7 +68,7 @@ public class ventanaLog extends JFrame{
 		JButton btnLog = new JButton("Iniciar Sesion");
 		btnLog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaPrincipal vPrin = new VentanaPrincipal();
+				VentanaPrincipal vPrin = new VentanaPrincipal(service);
 			}
 		});
 		p4.add(btnLog);

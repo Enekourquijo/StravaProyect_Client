@@ -1,6 +1,7 @@
-package es.deusto.ingenieria.sd.auctions.client.remote;
+package es.deusto.ingenieria.sd.strava.client.remote;
 
 import java.rmi.Naming;
+
 import es.deusto.ingenieria.sd.auctions.server.remote.IRemoteFacade;
 
 public class ServiceLocator {

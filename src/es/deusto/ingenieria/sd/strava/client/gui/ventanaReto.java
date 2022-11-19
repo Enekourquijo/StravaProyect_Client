@@ -1,4 +1,4 @@
-package ClienteVentana;
+package es.deusto.ingenieria.sd.strava.client.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

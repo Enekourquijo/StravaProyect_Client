@@ -1,9 +1,9 @@
-package es.deusto.ingenieria.sd.auctions.client.controller;
+package es.deusto.ingenieria.sd.strava.client.controller;
 
 import java.rmi.RemoteException;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 public class RetoController {
 	private ServiceLocator serviceLocator;

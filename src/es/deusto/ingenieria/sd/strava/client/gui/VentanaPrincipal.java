@@ -1,4 +1,4 @@
-package ClienteVentana;
+package es.deusto.ingenieria.sd.strava.client.gui;
 
 import java.awt.BorderLayout;
 
@@ -27,6 +27,9 @@ import javax.swing.JProgressBar;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
+
+import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
+
 
 
 
@@ -61,7 +64,7 @@ public class VentanaPrincipal extends JFrame {
 	private JPanel panel_2;
 	private JPanel panel_3;
 
-	public VentanaPrincipal() {
+	public VentanaPrincipal(ServiceLocator service) {
 		
 		//CREACION DEL LOGGER
 		/*Handler handler;
@@ -77,6 +80,7 @@ public class VentanaPrincipal extends JFrame {
 			e2.printStackTrace();
 		}
 		*/
+		
 		
 		
 		//PROPIEDADES DE LA VENTANA

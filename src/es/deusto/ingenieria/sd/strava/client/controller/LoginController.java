@@ -38,7 +38,12 @@ public class LoginController {
 
 	public void signup(String nombre, String contr, String mail, String fNac, 
             double peso, int altura, double fCardiacaMaxima, double fCardiacaReposo, String log) {
-		this.serviceLocator.getService().signup(nombre, contr, mail, fNac, peso, altura, fCardiacaMaxima, fCardiacaReposo, log);
+		try {
+			this.serviceLocator.getService().signup(nombre, contr, mail, fNac, peso, altura, fCardiacaMaxima, fCardiacaReposo, log);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	}
 	
@@ -47,9 +52,9 @@ public class LoginController {
 		return token;
 	}
 	
-	public Servicelocator getServiceLocator() {
-		return serviceLocator;
-	}
+//	public Servicelocator getServiceLocator() {
+//		return serviceLocator;
+//	}
 	
 	
 	

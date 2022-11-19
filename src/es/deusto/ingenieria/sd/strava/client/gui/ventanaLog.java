@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
+import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
+
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 import javax.swing.JButton;
@@ -24,8 +26,10 @@ public class ventanaLog extends JFrame{
 	private JTextField txtEmail;
 	private JPasswordField txtContrasenia;
 	private ServiceLocator service;
+	private LoginController controller;
 	
-	public ventanaLog() {
+	public ventanaLog(LoginController loginCont) {
+		 controller = loginCont;
 		
 		setBounds(425, 150, 800, 408);
 		setTitle("Log In");

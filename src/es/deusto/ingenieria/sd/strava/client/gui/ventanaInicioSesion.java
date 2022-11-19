@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -40,7 +43,7 @@ public class ventanaInicioSesion extends JFrame{
 			JButton btnLog = new JButton("LOG IN STRAVA");
 			btnLog.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ventanaLog vLog = new ventanaLog();
+//					ventanaLog vLog = new ventanaLog();
 				}
 			});
 			p2.add(btnLog);

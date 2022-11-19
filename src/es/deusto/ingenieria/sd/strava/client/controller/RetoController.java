@@ -10,7 +10,7 @@ public class RetoController {
 	public RetoController(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator;
 	}
-	public String[] getDeporte() {
+	public List<String> getDeporte() {
         try {
             return this.serviceLocator.getService().getDeporteRet();
         } catch (Exception e) {

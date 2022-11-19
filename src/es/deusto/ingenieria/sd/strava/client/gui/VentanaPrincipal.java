@@ -31,10 +31,6 @@ import javax.swing.border.EmptyBorder;
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 
-
-
-
-
 public class VentanaPrincipal extends JFrame {
 	//DECLARACION DE LOS ATRIBUTOS
 	

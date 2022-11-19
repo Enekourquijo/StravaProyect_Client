@@ -16,9 +16,9 @@ public class LoginController {
 		this.serviceLocator = serviceLocator;
 	}
 	
-	public boolean login(String email, String password) {
+	public boolean login(String mail, String contr) {
 		try {
-			this.token = this.serviceLocator.getService().login(email, password);			
+			this.token = this.serviceLocator.getService().login(mail, contr);			
 			return true;
 		} catch (RemoteException e) {
 			System.out.println("# Error during login: " + e);
@@ -36,9 +36,9 @@ public class LoginController {
 		}
 	}
 
-	public void signup(String nombre, String email, String fechaNac, String peso, String altura, 
-			String frecCardiacaMax, String frecCardiacaReposo, String contrasenia, TipoProvedor tipoProvedor) {
-		this.serviceLocator.getService().signup(nombre, email, fechaNac,  peso, altura, frecCardiacaMax, frecCardiacaReposo,  contrasenia, tipoProvedor);
+	public void signup(String nombre, String contr, String mail, String fNac, 
+            double peso, int altura, double fCardiacaMaxima, double fCardiacaReposo, String log) {
+		this.serviceLocator.getService().signup(nombre, contr, mail, fNac,  peso, altura, fCardiacaMaxima, fCardiacaReposo, log);
 	
 	}
 	

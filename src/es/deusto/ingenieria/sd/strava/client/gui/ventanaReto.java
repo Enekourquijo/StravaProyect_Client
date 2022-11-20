@@ -16,13 +16,22 @@ import javax.swing.JOptionPane;
 
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
+
+import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
+
 import java.awt.BorderLayout;
 import javax.swing.JTable;
 
 public class ventanaReto extends JFrame{
 	private JTable TablaRetos;
 	private JTable TablaActivos;
-	public ventanaReto() {
+	private RetoController controller;
+	
+	public ventanaReto(RetoController retoController) {
+		
+		controller = retoController;
+		
+		
 		setBounds(425, 150, 800, 408);
 		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -63,22 +72,24 @@ public class ventanaReto extends JFrame{
 		btnCrearReto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String er = "[0-9]{2}/[0-9]{2}/[0-9]{4}";
+				String[] tipos = {"CICLISMO","RUNNING"};
 				
 				String nomRet = JOptionPane.showInputDialog("Nombre del reto:");
 				String fechIni = JOptionPane.showInputDialog("Fecha Inicial del reto: ");
+				String fechFin = JOptionPane.showInputDialog("Fecha Final del reto: ");
 				String distancia = JOptionPane.showInputDialog("Distancia por recorrer en metros: ");
 				String tiempoObj = JOptionPane.showInputDialog("Tiempo a alcanzar en minutos: ");
-				String deporte = JOptionPane.showInputDialog("Deporte a realizar: ");
+				String deporte = (String) JOptionPane.showInputDialog(null, "Deporte a realizar: ", "Tipo de deporte", JOptionPane.QUESTION_MESSAGE, null, tipos, "CICLISMO");
 
 				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 				
-				if(Pattern.matches(er, fechIni)){
+				if(Pattern.matches(er, fechIni) && Pattern.matches(er, fechFin)){
 					JOptionPane.showMessageDialog(null,"reto creado con exito", null, JOptionPane.INFORMATION_MESSAGE);
 				}else {
 					JOptionPane.showMessageDialog(null,  "debe introducir bien las fechas" , "error",JOptionPane.ERROR_MESSAGE);
 				}
-				
-				
+				controller.makeReto(nomRet, fechIni, fechFin, Double.parseDouble(distancia), Double.parseDouble(tiempoObj), deporte);
+				controller.
 			}
 		});
 		panel.add(btnCrearReto);

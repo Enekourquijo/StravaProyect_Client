@@ -5,7 +5,7 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
@@ -70,11 +70,6 @@ public class ventanaLog extends JFrame{
 		pCentro.add(p4);
 		
 		JButton btnLog = new JButton("Iniciar Sesion");
-		btnLog.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VentanaPrincipal vPrin = new VentanaPrincipal(service);
-			}
-		});
 		p4.add(btnLog);
 		
 		
@@ -84,6 +79,12 @@ public class ventanaLog extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(controller.login(txtEmail.getText(), txtContrasenia.getText())) {
+					VentanaPrincipal vPrin = new VentanaPrincipal(service);
+				}else {
+					JOptionPane.showInputDialog(null, "Error en el login", "Aviso", JOptionPane.WARNING_MESSAGE);
+					System.out.println("Error en el login");
+				}
 				dispose();
 			}
 		});

@@ -4,6 +4,8 @@ package es.deusto.ingenieria.sd.strava.client.gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -13,6 +15,9 @@ import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
+
 import javax.swing.JPasswordField;
 
 
@@ -24,8 +29,12 @@ public class ventanaRegis extends JFrame{
 	private JPasswordField fieldContr;
 	private JTextField fieldFrecMax;
 	private JTextField fieldFrecRep;
-	public ventanaRegis() {
+	private LoginController controller;
+	private JTextField fieldfnac;
+	
+	public ventanaRegis(LoginController logincontroller) {
 		
+		controller = logincontroller;
 		setBounds(425, 150, 800, 408);
 		
 		JPanel panel = new JPanel();
@@ -34,7 +43,7 @@ public class ventanaRegis extends JFrame{
 		
 		JPanel panel_3 = new JPanel();
 		panel.add(panel_3);
-		panel_3.setLayout(new GridLayout(7, 2, 0, 0));
+		panel_3.setLayout(new GridLayout(8, 2, 0, 0));
 		
 		JLabel lblNombre = new JLabel("Introduzca su nombre:");
 		panel_3.add(lblNombre);
@@ -55,6 +64,13 @@ public class ventanaRegis extends JFrame{
 		fieldMail = new JTextField();
 		panel_3.add(fieldMail);
 		fieldMail.setColumns(10);
+		
+		JLabel lblFnac = new JLabel("Introduzca su FechaNacimiento");
+		panel_3.add(lblFnac);
+		
+		fieldfnac = new JTextField();
+		panel_3.add(fieldfnac);
+		fieldfnac.setColumns(10);
 		
 		JLabel lblPeso = new JLabel("*opcional* Peso:");
 		panel_3.add(lblPeso);
@@ -86,13 +102,15 @@ public class ventanaRegis extends JFrame{
 		
 		JPanel panel_4 = new JPanel();
 		panel.add(panel_4);
-		panel_4.setLayout(new GridLayout(2, 1, 0, 0));
+		panel_4.setLayout(new GridLayout(4, 2, 0, 0));
 		
-		JButton btnRegGoogle = new JButton("Reg.Google");
-		panel_4.add(btnRegGoogle);
+		JLabel lblNewLabel = new JLabel("Elige el modo de registro");
+		panel_4.add(lblNewLabel);
 		
-		JButton btnRegFacebook = new JButton("Reg.Facebook");
-		panel_4.add(btnRegFacebook);
+		JComboBox comboBox = new JComboBox();
+        comboBox.setModel(new DefaultComboBoxModel(new String[] {"GOOGLE", "FACEBOOK", "STRAVA"}));
+		panel_4.add(comboBox);
+		
 		
 		JPanel panel_1 = new JPanel();
 		getContentPane().add(panel_1, BorderLayout.NORTH);
@@ -110,7 +128,8 @@ public class ventanaRegis extends JFrame{
 		btnRegistrar.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e){
+				controller.signup(fieldNom.getText(), fieldContr.getText(), fieldMail.getText(), fieldfnac.getText(), Double.parseDouble(fieldPeso.getText()), Integer.parseInt(fieldAlt.getText()), Double.parseDouble(fieldFrecMax.getText()), Double.parseDouble(fieldFrecRep.getText()), String.valueOf(comboBox.getSelectedItem()));
 				dispose();
 			}
 		});

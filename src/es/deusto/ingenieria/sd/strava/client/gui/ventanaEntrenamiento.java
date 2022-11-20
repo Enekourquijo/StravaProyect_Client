@@ -15,11 +15,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
+
+import es.deusto.ingenieria.sd.strava.client.controller.SesionController;
+
 import java.awt.BorderLayout;
 
 public class ventanaEntrenamiento extends JFrame{
 	private JTable table;
-	public ventanaEntrenamiento() {
+	private SesionController controller;
+	public ventanaEntrenamiento(SesionController sesionController) {
+		
+		controller = sesionController;
 		
 		setBounds(425, 150, 800, 408);
 		getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
@@ -65,6 +71,10 @@ public class ventanaEntrenamiento extends JFrame{
 				}else {
 					JOptionPane.showMessageDialog(null,  "debe introducir bien las fechas" , "error",JOptionPane.ERROR_MESSAGE);
 				}
+				
+				controller.makeSesion(titulo, deporte, Double.parseDouble(distancia), fechIni, Integer.parseInt(horaIni), Double.parseDouble(duracion));
+			
+				
 			}
 		});
 		panel_2.add(btnCrearSesion);

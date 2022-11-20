@@ -41,7 +41,6 @@ public class LoginController {
 		try {
 			this.serviceLocator.getService().signup(nombre, contr, mail, fNac, peso, altura, fCardiacaMaxima, fCardiacaReposo, log);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	

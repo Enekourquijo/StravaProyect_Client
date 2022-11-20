@@ -2,12 +2,14 @@ package es.deusto.ingenieria.sd.strava.client.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -16,6 +18,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
 import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
 
@@ -23,9 +26,11 @@ import java.awt.BorderLayout;
 import javax.swing.JTable;
 
 public class ventanaReto extends JFrame{
-	private JTable TablaRetos;
-	private JTable TablaActivos;
+	private JTable TablaRetos, TablaActivos;
+	private DefaultTableModel modeloRetos, modeloActivos;
+	private JScrollPane scrollRetos, scrollActivos;
 	private RetoController controller;
+	private Object columnas[] = {"Nombre", "Fecha Inicio", "Fecha Fin"};
 	
 	public ventanaReto(RetoController retoController) {
 		
@@ -47,8 +52,11 @@ public class ventanaReto extends JFrame{
 		lblTablaRetos.setHorizontalAlignment(SwingConstants.CENTER);
 		panelTablaRetos.add(lblTablaRetos, BorderLayout.NORTH);
 		
-		TablaRetos = new JTable();
+		modeloRetos.addColumn(columnas);
+		TablaRetos = new JTable(modeloRetos);
 		panelTablaRetos.add(TablaRetos, BorderLayout.CENTER);
+		scrollRetos = new JScrollPane(TablaRetos);
+		add(scrollRetos);
 		
 		JPanel panelRetosActivos = new JPanel();
 		panel_1.add(panelRetosActivos);
@@ -58,8 +66,10 @@ public class ventanaReto extends JFrame{
 		lblRetosActivos.setHorizontalAlignment(SwingConstants.CENTER);
 		panelRetosActivos.add(lblRetosActivos, BorderLayout.NORTH);
 		
-		TablaActivos = new JTable();
+		TablaActivos = new JTable(modeloActivos);
 		panelRetosActivos.add(TablaActivos, BorderLayout.CENTER);
+		scrollActivos = new JScrollPane(TablaActivos);
+		add(scrollActivos);
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel);
@@ -89,7 +99,9 @@ public class ventanaReto extends JFrame{
 					JOptionPane.showMessageDialog(null,  "debe introducir bien las fechas" , "error",JOptionPane.ERROR_MESSAGE);
 				}
 				controller.makeReto(nomRet, fechIni, fechFin, Double.parseDouble(distancia), Double.parseDouble(tiempoObj), deporte);
-				controller.
+				
+				
+
 			}
 		});
 		panel.add(btnCrearReto);

@@ -28,6 +28,9 @@ import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
+import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
+import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
+import es.deusto.ingenieria.sd.strava.client.controller.SesionController;
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 
@@ -59,6 +62,10 @@ public class VentanaPrincipal extends JFrame {
 	private JPanel panel_1;
 	private JPanel panel_2;
 	private JPanel panel_3;
+	
+	private SesionController sesionController;
+	private LoginController loginController;
+	private RetoController retoController;
 
 	public VentanaPrincipal(ServiceLocator service) {
 		
@@ -170,7 +177,7 @@ public class VentanaPrincipal extends JFrame {
 		btnEntrenamiento = new JButton("ENTRENAMIENTO");
 		btnEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventanaEntrenamiento vE = new ventanaEntrenamiento();
+				ventanaEntrenamiento vE = new ventanaEntrenamiento(sesionController);
 			}
 		});
 		panelP2.add(btnEntrenamiento);
@@ -254,7 +261,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		btnRegistrarme_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventanaRegis vReg = new ventanaRegis();
+				ventanaRegis vReg = new ventanaRegis(loginController);
 			}
 		});
 		
@@ -266,7 +273,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		btnInicioSesion_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventanaInicioSesion v = new ventanaInicioSesion();
+				ventanaLog v = new ventanaLog(loginController);
 			}
 		});
 
@@ -274,7 +281,7 @@ public class VentanaPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ventanaReto v1 = new ventanaReto();
+				ventanaReto v1 = new ventanaReto(retoController);
 			}
 		});
 		

@@ -70,31 +70,21 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal(ServiceLocator service) {
 		
 		//CREACION DEL LOGGER
-		/*Handler handler;
-		try {
-			handler = new FileHandler("Usuarios.log");
-			handler.setFormatter(new SimpleFormatter());
-			log.addHandler(handler);
-		} catch (SecurityException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		*/
 		
 		
+		sesionController = new SesionController(service);
+		loginController = new LoginController(service);
+		retoController = new RetoController(service);
 		
 		//PROPIEDADES DE LA VENTANA
 		ventanaActual = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		setBounds(425, 150, 1000, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
-		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
 		
 		
 		//CREAMOS LOS PANELES
@@ -140,7 +130,6 @@ public class VentanaPrincipal extends JFrame {
 		panelNorte.add(panelNorteIzq);
 		
 		
-		
 		panelNorteMedio = new JPanel();
 		panelNorteMedio.setBackground(new Color(192, 192, 192));
 		panelNorte.add(panelNorteMedio);
@@ -159,6 +148,7 @@ public class VentanaPrincipal extends JFrame {
 		panelP1.add(panel);
 		
 		btnReto = new JButton("RETO");
+		btnReto.setBackground(new Color(255,128,1));
 		panelP1.add(btnReto);
 		
 		panel_1 = new JPanel();
@@ -175,9 +165,10 @@ public class VentanaPrincipal extends JFrame {
 		panelP2.add(panel_2);
 		
 		btnEntrenamiento = new JButton("ENTRENAMIENTO");
+		btnEntrenamiento.setBackground(new Color(255,128,1));
 		btnEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventanaEntrenamiento vE = new ventanaEntrenamiento(sesionController);
+				VentanaEntrenamiento vE = new VentanaEntrenamiento(sesionController);
 			}
 		});
 		panelP2.add(btnEntrenamiento);
@@ -202,7 +193,7 @@ public class VentanaPrincipal extends JFrame {
 
         lblFrase = new JLabel("");
 
-        ImageIcon im1 = new ImageIcon("imagenes\\titulo.gif");
+        ImageIcon im1 = new ImageIcon("imagenes\\text.gif");
         ImageIcon imagenConDimensiones1 = new ImageIcon(im1.getImage().getScaledInstance(400,75,Image.SCALE_DEFAULT));
         lblFrase.setIcon(imagenConDimensiones1);
 		
@@ -248,20 +239,20 @@ public class VentanaPrincipal extends JFrame {
 		
 		setLocationRelativeTo( null );
 		
-		ponerFotoABoton(btnInicioSesion_1, "imagenes\\IconoIniciarSesion.png", 30, 30, 30, 30);
+		ponerFotoABoton(btnInicioSesion_1, "imagenes\\iconoIniciarSesion.png", 30, 30, 30, 30);
 		
-		ponerFotoABoton(btnSalir_1, "imagenes\\IconoSalir.png", 30, 30, 30, 30);
+		ponerFotoABoton(btnSalir_1, "imagenes\\iconoSalirPagina.png", 30, 30, 30, 30);
 		
-		ponerFotoABoton(btnRegistrarme_1, "imagenes\\IconoRegistro.png", 30, 30, 30, 30);
+		ponerFotoABoton(btnRegistrarme_1, "imagenes\\iconoRegistrarUsuario.png", 30, 30, 30, 30);
 		
-		ponerFotoABoton(btnCerrarSesion_1, "imagenes\\IconoCerrarSesion.png", 30, 30, 30, 30);
+		ponerFotoABoton(btnCerrarSesion_1, "imagenes\\iconoCerrarSesion.png", 30, 30, 30, 30);
 		
 
 		
 		
 		btnRegistrarme_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventanaRegis vReg = new ventanaRegis(loginController);
+				VentanaRegis vReg = new VentanaRegis(loginController);
 			}
 		});
 		
@@ -273,7 +264,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		btnInicioSesion_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventanaLog v = new ventanaLog(loginController);
+				VentanaLog v = new VentanaLog(loginController, service);
 			}
 		});
 
@@ -281,18 +272,10 @@ public class VentanaPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ventanaReto v1 = new ventanaReto(retoController);
+				
+				VentanaReto v1 = new VentanaReto(retoController);
 			}
 		});
-		
-		
-//		btnEntrenamiento.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				ventanaEntrenamiento v1 = new ventanaEntrenamiento();
-//			}
-//		});
 		
 		setVisible(true);
 	}
@@ -306,7 +289,7 @@ public class VentanaPrincipal extends JFrame {
 		ImageIcon icon = new ImageIcon(rutaFoto);
 		Icon i = new ImageIcon(icon.getImage().getScaledInstance(alto, ancho, Image.SCALE_DEFAULT));
 		btn.setIcon(i);
-		btn.setBackground(new Color(33,138,193));
+		btn.setBackground(new Color(255,128,0));
 	}
 	
     

@@ -10,7 +10,9 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 import javax.swing.JPanel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -20,10 +22,10 @@ import es.deusto.ingenieria.sd.strava.client.controller.SesionController;
 
 import java.awt.BorderLayout;
 
-public class ventanaEntrenamiento extends JFrame{
-	private JTable table;
+public class VentanaEntrenamiento extends JFrame{
 	private SesionController controller;
-	public ventanaEntrenamiento(SesionController sesionController) {
+	
+	public VentanaEntrenamiento(SesionController sesionController) {
 		
 		controller = sesionController;
 		
@@ -43,8 +45,9 @@ public class ventanaEntrenamiento extends JFrame{
 		labelSesion.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(labelSesion, BorderLayout.NORTH);
 		
-		table = new JTable();
-		panel_1.add(table, BorderLayout.CENTER);
+		JComboBox comboBoxSesion = new JComboBox();
+        comboBoxSesion.setModel(new DefaultComboBoxModel(controller.getSesion().toArray()));
+		panel_1.add(comboBoxSesion);
 		
 		JPanel panel_2 = new JPanel();
 		panel.add(panel_2);
@@ -55,16 +58,18 @@ public class ventanaEntrenamiento extends JFrame{
 				
 				String regexIniFech = "[0-9]{2}/[0-9]{2}/[0-9]{4}";
 				String regexIniHora = "[0-9]{2}:[0-9]{2}";
+				String[] tipos = {"CICLISMO","RUNNING"};
 				
 				String titulo = JOptionPane.showInputDialog("Titulo de la sesion:");
-				String deporte = JOptionPane.showInputDialog("Deporte a realizar (ciclismo/running): ");
+				String deporte = (String) JOptionPane.showInputDialog(null, "Deporte a realizar: ", "Tipo de deporte", JOptionPane.QUESTION_MESSAGE, null, tipos, "CICLISMO");
 				String distancia = JOptionPane.showInputDialog("Distancia por recorrer en metros: ");
 				String fechIni = JOptionPane.showInputDialog("Fecha Inicial del reto: ");
 				String horaIni = JOptionPane.showInputDialog("Hora de inicio de la sesion: ");
 				String duracion = JOptionPane.showInputDialog("Duracion:  ");
 				
-				SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
-				SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
+				
+//				SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
+//				SimpleDateFormat sdfHora = new SimpleDateFormat("");
 				
 				if(Pattern.matches(regexIniFech, fechIni) && Pattern.matches(regexIniHora, horaIni)){
 					JOptionPane.showMessageDialog(null,"sesion creada con exito", null, JOptionPane.INFORMATION_MESSAGE);
@@ -73,7 +78,7 @@ public class ventanaEntrenamiento extends JFrame{
 				}
 				
 				controller.makeSesion(titulo, deporte, Double.parseDouble(distancia), fechIni, Integer.parseInt(horaIni), Double.parseDouble(duracion));
-			
+				repaint();
 				
 			}
 		});

@@ -20,7 +20,15 @@ public class SesionController {
             return null;
         }
     }
-
+    public List<String> getSesion() {
+        try {
+            List<String> list = this.serviceLocator.getService().getSesion();
+            return list;
+        } catch(Exception e) {
+            System.out.println(" # Error during get Reto: " + e);
+            return null;
+        }
+    }
     public void makeSesion(String titulo, String deporte, double km, String fInicio, int hora, double duracion) {
         try {
             this.serviceLocator.getService().makeSesion(titulo, deporte, km, fInicio, hora, duracion);

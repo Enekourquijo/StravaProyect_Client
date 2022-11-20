@@ -19,9 +19,10 @@ import javax.swing.JTextField;
 import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
 
 import javax.swing.JPasswordField;
+import javax.swing.SwingConstants;
 
 
-public class ventanaRegis extends JFrame{
+public class VentanaRegis extends JFrame{
 	private JTextField fieldNom;
 	private JTextField fieldMail;
 	private JTextField fieldPeso;
@@ -32,7 +33,7 @@ public class ventanaRegis extends JFrame{
 	private LoginController controller;
 	private JTextField fieldfnac;
 	
-	public ventanaRegis(LoginController logincontroller) {
+	public VentanaRegis(LoginController logincontroller) {
 		
 		controller = logincontroller;
 		setBounds(425, 150, 800, 408);
@@ -79,21 +80,21 @@ public class ventanaRegis extends JFrame{
 		panel_3.add(fieldPeso);
 		fieldPeso.setColumns(10);
 		
-		JLabel lblAlt = new JLabel("*opcional* altura:");
+		JLabel lblAlt = new JLabel("Altura:");
 		panel_3.add(lblAlt);
 		
 		fieldAlt = new JTextField();
 		panel_3.add(fieldAlt);
 		fieldAlt.setColumns(10);
 		
-		JLabel lblFrecMax = new JLabel("*opcional* frecMax:");
+		JLabel lblFrecMax = new JLabel("FrecuenciaMaxima:");
 		panel_3.add(lblFrecMax);
 		
 		fieldFrecMax = new JTextField();
 		panel_3.add(fieldFrecMax);
 		fieldFrecMax.setColumns(10);
 		
-		JLabel lblFrecRep = new JLabel("*opcional* frecRep");
+		JLabel lblFrecRep = new JLabel("FrecuenciaReposo:");
 		panel_3.add(lblFrecRep);
 		
 		fieldFrecRep = new JTextField();
@@ -115,9 +116,8 @@ public class ventanaRegis extends JFrame{
 		JPanel panel_1 = new JPanel();
 		getContentPane().add(panel_1, BorderLayout.NORTH);
 		
-		JTextArea txtrRegistro = new JTextArea();
-		txtrRegistro.setText("REGISTRO");
-		panel_1.add(txtrRegistro);
+		JLabel lblRegis = new JLabel("REGISTRAR");
+		panel_1.add(lblRegis);
 		
 		JPanel panel_2 = new JPanel();
 		getContentPane().add(panel_2, BorderLayout.SOUTH);
@@ -129,7 +129,9 @@ public class ventanaRegis extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e){
-				controller.signup(fieldNom.getText(), fieldContr.getText(), fieldMail.getText(), fieldfnac.getText(), Double.parseDouble(fieldPeso.getText()), Integer.parseInt(fieldAlt.getText()), Double.parseDouble(fieldFrecMax.getText()), Double.parseDouble(fieldFrecRep.getText()), String.valueOf(comboBox.getSelectedItem()));
+				controller.signup(fieldNom.getText(), fieldContr.getText(), fieldMail.getText(), fieldfnac.getText(), Double.parseDouble(fieldPeso.getText()), 
+								Integer.parseInt(fieldAlt.getText()), Double.parseDouble(fieldFrecMax.getText()), Double.parseDouble(fieldFrecRep.getText()), 
+								String.valueOf(comboBox.getSelectedItem()));
 				dispose();
 			}
 		});

@@ -21,15 +21,16 @@ import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 import javax.swing.JButton;
 
-public class ventanaLog extends JFrame{
+public class VentanaLog extends JFrame{
 	private JPanel contentPane;
 	private JTextField txtEmail;
 	private JPasswordField txtContrasenia;
 	private ServiceLocator service;
 	private LoginController controller;
 	
-	public ventanaLog(LoginController loginCont) {
-		 controller = loginCont;
+	public VentanaLog(LoginController loginCont, ServiceLocator service) {
+		controller = loginCont;
+		this.service = service;
 		
 		setBounds(425, 150, 800, 408);
 		setTitle("Log In");

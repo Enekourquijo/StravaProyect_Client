@@ -3,6 +3,7 @@ package es.deusto.ingenieria.sd.strava.client.controller;
 import java.rmi.RemoteException;
 
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.strava.server.data.dto.TipoProveedor;
 
 //This class implements Controller pattern.
 public class LoginController {	
@@ -37,9 +38,9 @@ public class LoginController {
 	}
 
 	public void signup(String nombre, String contr, String mail, String fNac, 
-            double peso, int altura, double fCardiacaMaxima, double fCardiacaReposo, String log) {
+            double peso, int altura, double fCardiacaMaxima, double fCardiacaReposo, String log, TipoProveedor tipoProvedor) {
 		try {
-			this.serviceLocator.getService().signup(nombre, contr, mail, fNac, peso, altura, fCardiacaMaxima, fCardiacaReposo, log);
+			this.serviceLocator.getService().signup(nombre, contr, mail, fNac, peso, altura, fCardiacaMaxima, fCardiacaReposo, log, tipoProvedor);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

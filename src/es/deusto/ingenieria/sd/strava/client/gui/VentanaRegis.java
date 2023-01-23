@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
+import es.deusto.ingenieria.sd.strava.server.data.dto.TipoProveedor;
 
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
@@ -151,7 +152,7 @@ public class VentanaRegis extends JFrame{
 			public void actionPerformed(ActionEvent e){
 				controller.signup(fieldNom.getText(), fieldContr.getText(), fieldMail.getText(), fieldfnac.getText(), Double.parseDouble(fieldPeso.getText()), 
 								Integer.parseInt(fieldAlt.getText()), Double.parseDouble(fieldFrecMax.getText()), Double.parseDouble(fieldFrecRep.getText()), 
-								String.valueOf(comboBox.getSelectedItem()));
+								"",TipoProveedor.values()[comboBox.getSelectedIndex()]);
 				dispose();
 			}
 		});

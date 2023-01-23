@@ -30,6 +30,8 @@ import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
 
 import java.awt.BorderLayout;
 import javax.swing.JTable;
+import java.awt.Color;
+import java.awt.Font;
 
 public class VentanaReto extends JFrame{
 //	private JTable TablaActivos;
@@ -52,20 +54,27 @@ public class VentanaReto extends JFrame{
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel panelTablaRetos = new JPanel();
+		panelTablaRetos.setBackground(new Color(128, 128, 128));
 		panel_1.add(panelTablaRetos);
 		panelTablaRetos.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblTablaRetos = new JLabel("Retos Totales");
+		lblTablaRetos.setForeground(new Color(255, 255, 255));
+		lblTablaRetos.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblTablaRetos.setBackground(new Color(255, 255, 255));
 		lblTablaRetos.setHorizontalAlignment(SwingConstants.CENTER);
 		panelTablaRetos.add(lblTablaRetos, BorderLayout.NORTH);
 		
 //		modeloRetos.addColumn(columnas);
 		
 		JPanel panelRetosActivos = new JPanel();
+		panelRetosActivos.setBackground(new Color(128, 128, 128));
 		panel_1.add(panelRetosActivos);
 		panelRetosActivos.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblRetosActivos = new JLabel("Retos Activos");
+		lblRetosActivos.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblRetosActivos.setForeground(new Color(255, 255, 255));
 		lblRetosActivos.setHorizontalAlignment(SwingConstants.CENTER);
 		panelRetosActivos.add(lblRetosActivos, BorderLayout.NORTH);
 		
@@ -85,10 +94,12 @@ public class VentanaReto extends JFrame{
 		panelRetosActivos.add(comboBoxRetosActivos);
         
         JPanel panel = new JPanel();
+        panel.setBackground(new Color(255, 128, 64));
 		getContentPane().add(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JButton btnUnirse = new JButton("Unirse Reto");
+		btnUnirse.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel.add(btnUnirse);
 		btnUnirse.addMouseListener(new MouseAdapter() {	
 			@Override
@@ -119,6 +130,7 @@ public class VentanaReto extends JFrame{
 		});
 		
 		JButton btnCrearReto = new JButton("Crear Reto");
+		btnCrearReto.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnCrearReto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String er = "[0-9]{2}/[0-9]{2}/[0-9]{4}";
@@ -147,9 +159,11 @@ public class VentanaReto extends JFrame{
 		panel.add(btnCrearReto);
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(255, 128, 64));
 		getContentPane().add(panel_2);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_2.add(btnSalir);
 		
 		btnSalir.addActionListener(new ActionListener() {

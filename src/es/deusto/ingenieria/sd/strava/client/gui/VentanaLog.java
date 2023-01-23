@@ -20,6 +20,8 @@ import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.DropMode;
 
 public class VentanaLog extends JFrame{
 	private JPanel contentPane;
@@ -42,25 +44,32 @@ public class VentanaLog extends JFrame{
 		pCentro.setLayout(new GridLayout(4, 1, 0, 0));
 		
 		JPanel p1 = new JPanel();
+		p1.setBackground(new Color(255, 128, 64));
 		pCentro.add(p1);
 		
 		JLabel lblLog = new JLabel("LOG IN");
+		lblLog.setFont(new Font("Tahoma", Font.BOLD, 20));
 		p1.add(lblLog);
 		
 		JPanel p2 = new JPanel();
+		p2.setBackground(new Color(255, 128, 64));
 		pCentro.add(p2);
 		
 		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 10));
 		p2.add(lblEmail);
 		
 		txtEmail = new JTextField();
+		txtEmail.setText("ejemplo@mail.com");
 		p2.add(txtEmail);
 		txtEmail.setColumns(10);
 		
 		JPanel p3 = new JPanel();
+		p3.setBackground(new Color(255, 128, 64));
 		pCentro.add(p3);
 		
-		JLabel lblContrasenia = new JLabel("Contraseña");
+		JLabel lblContrasenia = new JLabel("Contraseña:");
+		lblContrasenia.setFont(new Font("Tahoma", Font.BOLD, 10));
 		p3.add(lblContrasenia);
 		
 		txtContrasenia = new JPasswordField();
@@ -68,9 +77,11 @@ public class VentanaLog extends JFrame{
 		txtContrasenia.setColumns(10);
 		
 		JPanel p4 = new JPanel();
+		p4.setBackground(new Color(255, 128, 64));
 		pCentro.add(p4);
 		
 		JButton btnLog = new JButton("Iniciar Sesion");
+		btnLog.setFont(new Font("Tahoma", Font.BOLD, 10));
 		p4.add(btnLog);
 		
 		

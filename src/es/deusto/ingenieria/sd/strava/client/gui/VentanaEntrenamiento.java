@@ -19,9 +19,11 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
 import es.deusto.ingenieria.sd.strava.client.controller.SesionController;
+import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 
 public class VentanaEntrenamiento extends JFrame{
@@ -31,7 +33,7 @@ public class VentanaEntrenamiento extends JFrame{
 		
 		controller = sesionController;
 		
-		setBounds(425, 150, 800, 408);
+		setBounds(325, 100, 800, 408);
 		getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 		
 		JPanel panel = new JPanel();
@@ -109,6 +111,8 @@ public class VentanaEntrenamiento extends JFrame{
 
 		
 		setVisible(true);
+		
+		
 	}
 	
 }

@@ -34,7 +34,7 @@ public class VentanaLog extends JFrame{
 		controller = loginCont;
 		this.service = service;
 		
-		setBounds(425, 150, 800, 408);
+		setBounds(325, 100, 800, 408);
 		setTitle("Log In");
 		setResizable(true);
 		getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
@@ -44,7 +44,7 @@ public class VentanaLog extends JFrame{
 		pCentro.setLayout(new GridLayout(4, 1, 0, 0));
 		
 		JPanel p1 = new JPanel();
-		p1.setBackground(new Color(255, 128, 64));
+		p1.setBackground(new Color(255, 102, 0));
 		pCentro.add(p1);
 		
 		JLabel lblLog = new JLabel("LOG IN");
@@ -52,7 +52,7 @@ public class VentanaLog extends JFrame{
 		p1.add(lblLog);
 		
 		JPanel p2 = new JPanel();
-		p2.setBackground(new Color(255, 128, 64));
+		p2.setBackground(new Color(255, 102, 0));
 		pCentro.add(p2);
 		
 		JLabel lblEmail = new JLabel("Email");
@@ -65,7 +65,7 @@ public class VentanaLog extends JFrame{
 		txtEmail.setColumns(10);
 		
 		JPanel p3 = new JPanel();
-		p3.setBackground(new Color(255, 128, 64));
+		p3.setBackground(new Color(255, 102, 0));
 		pCentro.add(p3);
 		
 		JLabel lblContrasenia = new JLabel("Contraseña:");
@@ -77,7 +77,7 @@ public class VentanaLog extends JFrame{
 		txtContrasenia.setColumns(10);
 		
 		JPanel p4 = new JPanel();
-		p4.setBackground(new Color(255, 128, 64));
+		p4.setBackground(new Color(255, 102, 0));
 		pCentro.add(p4);
 		
 		JButton btnLog = new JButton("Iniciar Sesion");

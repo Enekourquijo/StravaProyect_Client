@@ -58,14 +58,12 @@ public class VentanaPrincipal extends JFrame {
 	private JButton btnSalir_1;
 	private JButton btnCerrarSesion_1;
 	private JButton btnRegistrarme_1;
-	private JPanel panel;
-	private JPanel panel_1;
 	private JPanel panel_2;
-	private JPanel panel_3;
 	
 	private SesionController sesionController;
 	private LoginController loginController;
 	private RetoController retoController;
+	private JPanel panel;
 
 	public VentanaPrincipal(ServiceLocator service) {
 		
@@ -79,7 +77,7 @@ public class VentanaPrincipal extends JFrame {
 		//PROPIEDADES DE LA VENTANA
 		ventanaActual = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(425, 150, 1000, 800);
+		setBounds(325, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -100,20 +98,20 @@ public class VentanaPrincipal extends JFrame {
 		panelArribaIzq = new JPanel();
 		panelArribaIzq.setLayout(new GridLayout(2, 1));
 		panelArriba.add(panelArribaIzq);
-		panelArribaIzq.setBackground(new Color(192, 192, 192));
+		panelArribaIzq.setBackground(new Color(255, 102, 0));
 		
 		panelArribaIzq1 = new JPanel();
 		panelArribaIzq.add(panelArribaIzq1);
 		panelArribaIzq1.setLayout(new GridLayout(0,3,0,0));
-		panelArribaIzq1.setBackground(new Color(192, 192, 192));
+		panelArribaIzq1.setBackground(new Color(255, 102, 0));
 		
 		panelArribaIzq12 = new JPanel();
 		panelArribaIzq1.add(panelArribaIzq12);
-		panelArribaIzq12.setBackground(new Color(192, 192, 192));
+		panelArribaIzq12.setBackground(new Color(255, 102, 0));
 		
 		panelArribaIzq2 = new JPanel();
 		panelArribaIzq.add(panelArribaIzq2);
-		panelArribaIzq2.setBackground(new Color(192, 192, 192));
+		panelArribaIzq2.setBackground(new Color(255, 102, 0));
 		
 	   
 		panelArribaDrc = new JPanel();
@@ -126,16 +124,16 @@ public class VentanaPrincipal extends JFrame {
 		panelNorte.setLayout(new GridLayout(0,3,0,0));
 		
 		panelNorteIzq = new JPanel();
-		panelNorteIzq.setBackground(new Color(192, 192, 192));
+		panelNorteIzq.setBackground(new Color(255, 102, 0));
 		panelNorte.add(panelNorteIzq);
 		
 		
 		panelNorteMedio = new JPanel();
-		panelNorteMedio.setBackground(new Color(192, 192, 192));
+		panelNorteMedio.setBackground(new Color(255, 102, 0));
 		panelNorte.add(panelNorteMedio);
 		
 		panelNorteDrc = new JPanel();
-		panelNorteDrc.setBackground(new Color(192, 192, 192));
+		panelNorteDrc.setBackground(new Color(255, 102, 0));
 		panelNorte.add(panelNorteDrc);
 	
 		panelP1 = new JPanel();
@@ -144,38 +142,39 @@ public class VentanaPrincipal extends JFrame {
 		panelP1.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(192, 192, 192));
+		panel.setBackground(new Color(255, 102, 0));
 		panelP1.add(panel);
 		
 		btnReto = new JButton("RETO");
+		panel.add(btnReto);
 		btnReto.setBackground(new Color(255,128,1));
-		panelP1.add(btnReto);
 		
-		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(192, 192, 192));
-		panelP1.add(panel_1);
+				btnReto.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						VentanaReto v1 = new VentanaReto(retoController);
+					}
+				});
 		
 		panelP2 = new JPanel();
 		panelArribaDrc.add(panelP2);
-		panelP2.setBackground(new Color(192, 192, 192));
+		panelP2.setBackground(new Color(255, 102, 0));
 		panelP2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		panel_2 = new JPanel();
-		panel_2.setBackground(new Color(192, 192, 192));
+		panel_2.setBackground(new Color(255, 102, 0));
 		panelP2.add(panel_2);
 		
 		btnEntrenamiento = new JButton("ENTRENAMIENTO");
+		panel_2.add(btnEntrenamiento);
 		btnEntrenamiento.setBackground(new Color(255,128,1));
 		btnEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaEntrenamiento vE = new VentanaEntrenamiento(sesionController);
 			}
 		});
-		panelP2.add(btnEntrenamiento);
-		
-		panel_3 = new JPanel();
-		panel_3.setBackground(new Color(192, 192, 192));
-		panelP2.add(panel_3);
 		
 		
 		
@@ -212,7 +211,7 @@ public class VentanaPrincipal extends JFrame {
 		panelNorteDrc.add(lblHora);
 		
 		panelArribaIzq13 = new JPanel();
-		panelArribaIzq13.setBackground(new Color(192, 192, 192));
+		panelArribaIzq13.setBackground(new Color(255, 102, 0));
 		panelArribaIzq1.add(panelArribaIzq13);
 		
 		btnInicioSesion_1 = new JButton();
@@ -270,15 +269,6 @@ public class VentanaPrincipal extends JFrame {
 		btnInicioSesion_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaLog v = new VentanaLog(loginController, service);
-			}
-		});
-
-		btnReto.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				VentanaReto v1 = new VentanaReto(retoController);
 			}
 		});
 		

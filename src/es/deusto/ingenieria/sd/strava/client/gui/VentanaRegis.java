@@ -39,14 +39,14 @@ public class VentanaRegis extends JFrame{
 	public VentanaRegis(LoginController logincontroller) {
 		
 		controller = logincontroller;
-		setBounds(425, 150, 800, 408);
+		setBounds(325, 100, 800, 408);
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(1, 2, 0, 0));
 		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(255, 128, 64));
+		panel_3.setBackground(new Color(255, 102, 0));
 		panel.add(panel_3);
 		panel_3.setLayout(new GridLayout(8, 2, 0, 0));
 		
@@ -114,7 +114,7 @@ public class VentanaRegis extends JFrame{
 		fieldFrecRep.setColumns(10);
 		
 		JPanel panel_4 = new JPanel();
-		panel_4.setBackground(new Color(255, 128, 64));
+		panel_4.setBackground(new Color(255, 102, 0));
 		panel.add(panel_4);
 		panel_4.setLayout(new GridLayout(4, 2, 0, 0));
 		
@@ -131,15 +131,15 @@ public class VentanaRegis extends JFrame{
 		
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(128, 128, 128));
+		panel_1.setBackground(new Color(255, 102, 0));
 		getContentPane().add(panel_1, BorderLayout.NORTH);
 		
 		JLabel lblRegis = new JLabel("REGISTRAR");
-		lblRegis.setForeground(Color.WHITE);
+		lblRegis.setForeground(Color.BLACK);
 		panel_1.add(lblRegis);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(128, 128, 128));
+		panel_2.setBackground(new Color(255, 102, 0));
 		getContentPane().add(panel_2, BorderLayout.SOUTH);
 		
 		JButton btnRegistrar = new JButton("Registrar");

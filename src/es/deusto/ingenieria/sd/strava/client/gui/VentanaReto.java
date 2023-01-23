@@ -46,10 +46,11 @@ public class VentanaReto extends JFrame{
 //		modeloRetos = new DefaultTableModel();
 //		modeloActivos = new DefaultTableModel();
 		
-		setBounds(425, 150, 800, 408);
+		setBounds(325, 100, 800, 408);
 		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 102, 0));
 		getContentPane().add(panel_1);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -94,7 +95,7 @@ public class VentanaReto extends JFrame{
 		panelRetosActivos.add(comboBoxRetosActivos);
         
         JPanel panel = new JPanel();
-        panel.setBackground(new Color(255, 128, 64));
+        panel.setBackground(new Color(255, 102, 0));
 		getContentPane().add(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
@@ -158,13 +159,9 @@ public class VentanaReto extends JFrame{
 		});
 		panel.add(btnCrearReto);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(255, 128, 64));
-		getContentPane().add(panel_2);
-		
 		JButton btnSalir = new JButton("Salir");
+		panel.add(btnSalir);
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
-		panel_2.add(btnSalir);
 		
 		btnSalir.addActionListener(new ActionListener() {
 			
